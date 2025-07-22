@@ -1,5 +1,6 @@
 package com.ds.mcp_qty_item.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -11,6 +12,7 @@ public class QuantityItemAllocation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "quantity_item_id")
     private QuantityItem quantityItem;
